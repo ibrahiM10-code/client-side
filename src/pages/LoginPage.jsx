@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function LoginPage() {
     return (
         <>
-            <NavBar />
+            <NavBar loggedIn={false}/>
             <div class="form-container">
                 <h1>Iniciar Sesión</h1>
                 <form id="login-form" method="post">

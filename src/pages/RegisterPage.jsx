@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function RegisterPage() {
     return (
         <>
-            <NavBar />
+            <NavBar loggedIn={false} />
             <div class="form-container">
                 <h1>Registro</h1>
                 <form id="registration-form" method="post">

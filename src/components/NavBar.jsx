@@ -1,18 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function NavBar() {
-    const isToken = false;
+function NavBar({ loggedIn }) {
     return (
         <header>
             <h1 id="title">BC Finances</h1>
             <nav>
                 <ul>
-                    { isToken ? (
+                    { loggedIn ? (
                         <>
                             <li className="welcome-msg">Welcome, user</li>
                             <li>
-                                <img src="./images/foto-perfil.png" id="profile-pic" />
+                                <img src="./images/foto-perfil.png" id="profile-pic" alt="profile picture" />
                             </li>
                         </>
                     ) : (
@@ -20,7 +19,7 @@ function NavBar() {
                     )}
                 </ul>
             </nav>
-            { !isToken && (
+            { !loggedIn && (
                 <Link to="/login" className="to-login-btn">Login</Link>
             )}
         </header>
