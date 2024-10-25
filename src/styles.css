@@ -208,7 +208,7 @@ footer > hr {
 .menu-container {
     display: flex;
     justify-content: center;
-    margin-top: 170px;
+    margin-top: 140px;
 }
 
 .option {
@@ -265,12 +265,58 @@ footer > hr {
 
 .add-expense-container {
     border-top-right-radius: 15px;
+    position: relative;
+}
+
+.option-legend {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+.option-legend > p {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.add-expense-img-container > img {
+    width: 90px;
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+}
+
+#red-arrow-add {
+    right: 70px;
+    width: 95px;
 }
 
 .payment-methods-container {
     border-bottom-left-radius: 15px;
+    position: relative;
+}
+
+.payment-methods-img-container > img {
+    width: 70px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+#money-img-methods {
+    width: 66px;
+    right: 50px;
 }
 
 .history-container {
     border-bottom-right-radius: 15px;
+    position: relative;
+}
+
+.history-content > img {
+    position: absolute;
+    width: 100px;
+    right: 20px;
+    bottom: 45px;
 }
