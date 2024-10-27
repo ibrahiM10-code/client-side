@@ -320,3 +320,9 @@ footer > hr {
     right: 20px;
     bottom: 45px;
 }
+
+.alert-register {
+    position: relative;
+    bottom: 215px;
+    left: 190px;
+}
