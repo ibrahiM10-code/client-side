@@ -13,8 +13,12 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 30px 50px;
+    padding: 25px 50px;
+    background-color: #003366;
+    color: #f8f9fa;
+    max-height: 110px;
 }
+
 
 header > h1 {
     font-weight: 700;
@@ -27,7 +31,8 @@ nav > ul {
 
 nav > ul > li {
     display: inline-block;
-    margin-right: 100px;
+    /* margin-right: 100px; */
+    margin: 15px 100px 0 0;
     font-size: 1.15rem;
 }
 
@@ -47,7 +52,7 @@ nav > ul > li {
 #profile-pic {
     width: 50px;
     position: relative;
-    top: 8px;
+    top: -10px;
     right: 40px;
 }
 
@@ -79,13 +84,120 @@ footer > hr {
 }
 
 /* Estilos del landing page */
+.header-landing {
+    background-image: url('https://images.pexels.com/photos/6963017/pexels-photo-6963017.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover; /* Asegura que la imagen cubra todo el header */
+    background-position: center; /* Centra la imagen */
+    color: white;
+    text-align: center;
+    padding: 140px 20px; /* Ajusta el padding según sea necesario */
+    position: relative; /*Para el efecto de superposición*/
+}
 
+.header-landing::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+    z-index: 1; /* Colocar la superposición detrás del texto */
+}
+
+.header-landing h1 {
+    position: relative; /* Para mantener el texto sobre la superposición */
+    z-index: 2; /* Asegurarse de que el texto esté encima */
+    font-size: 2.5rem; /* Aumentar el tamaño del texto */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+
+.header-landing p {
+    position: relative; /* Para mantener el texto sobre la superposición */
+    z-index: 2; /* Asegurarse de que el texto esté encima */
+    font-size: 1.25rem; /* Tamaño de texto más grande */
+}
+
+#mission {
+    background-color: #f8f9fa; /* Color de fondo suave */
+    padding: 40px 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 55px 0; /* Margen superior e inferior */
+}
+#mission h2 {
+    color: #0056b3; /* Color del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+#mission p {
+    font-size: 1.1rem; /* Aumenta el tamaño del texto */
+    text-align: center; /* Centrar texto */
+}
+
+#services {
+    margin: 80px 0;
+}
+
+#services > h2 {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se alineen en columna */
+}
+
+.card-body {
+    flex-grow: 1; /* Permite que el card-body ocupe el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card i {
+    transition: transform 0.3s; /* Añadir transición a los íconos */
+}
+
+.card:hover i {
+    transform: scale(1.2) rotate(10deg); /* Escalar y rotar al pasar el cursor */
+}
+
+.footer-landing {
+    background-color: #003366; /* Color de fondo del footer */
+    color: white;
+    padding: 20px 0; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-landing p {
+    margin: 0; /* Eliminar margen */
+    font-size: 1rem; /* Tamaño de texto del footer */
+}
+.footer-landing .gold {
+    color: #ffd700; /* Color dorado para el segundo párrafo */
+}
+.footer-landing a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
 
 /* Estilos del formulario de registro */
 .form-container {
     max-width: 400px;
     margin: 50px auto;
-    padding: 30px;
+    padding: 10px 30px;
     border: 1px solid #ddd;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -157,9 +269,8 @@ footer > hr {
 }
 
 /* Estilos del Login */
-
 #login-form {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 #login-form > h1 {
@@ -232,25 +343,26 @@ footer > hr {
 
 .latest-expense-content > p {
     position: relative;
-    top: 24px;
+    top: 20px;
     left: 18px;
     font-size: 14px;
     font-weight: 700;
+    margin: 0;
 }
 
 .latest-expense-content > h1 {
     position: relative;
-    top: 53px;
-    left: 90px;
+    top: 45px;
+    left: 85px;
+    margin: 0;
+    font-weight: 700;
 }
-
 .latest-expense {
     display: flex;
     justify-content: center;
     gap: 7px;
     position: relative;
-    top: 80px;
-    
+    top: 65px;
 }
 
 .latest-expense > img {
@@ -280,6 +392,8 @@ footer > hr {
     font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
 }
 
 .add-expense-img-container > img {
