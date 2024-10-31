@@ -54,7 +54,7 @@ function RegisterPage() {
              </div>
              {isActive && (
                 <Stack className="alert-register" sx={{ width: '20%' }} spacing={2}>
-                    <Alert severity="info" onClose={() => {}} onClick={ () => {setIsActive(false)}}>
+                    <Alert severity="warning" onClose={() => {}} onClick={ () => {setIsActive(false)}}>
                         The password must be of 8 characters long.
                     </Alert>
                 </Stack>
