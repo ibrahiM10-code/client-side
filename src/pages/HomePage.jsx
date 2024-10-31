@@ -1,8 +1,31 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
+
+    const navigate = useNavigate()
+
+    const redirect = (whereTo) => {
+        switch (whereTo) {
+            case "payment":
+                navigate("/your-payment-methods");
+                break;
+            
+            case "expense":
+                navigate("your-expenses");
+                break;
+
+            case "history":
+                navigate("your-history");
+                break;
+
+            default:
+                break;
+        }
+    }
+
     return (
         <>
             <NavBar loggedIn={true} />
@@ -18,7 +41,7 @@ function HomePage() {
                             </div>
                         </div>
                     </div>
-                    <div className="payment-methods-container option">
+                    <div className="payment-methods-container option" onClick={() => redirect("payment")}>
                         <div className="payment-method-content">
                             <div className="option-legend">
                                 <p>My Payment</p>
@@ -32,7 +55,7 @@ function HomePage() {
                     </div>
                 </div>
                 <div className="second-row-options">    
-                    <div className="add-expense-container option">
+                    <div className="add-expense-container option" onClick={() => redirect("expense")}>
                         <div className="add-expense-content">
                             <div className="option-legend">
                                 <p>Add</p>
@@ -44,7 +67,7 @@ function HomePage() {
                             </div>
                         </div>
                     </div>
-                    <div className="history-container option">
+                    <div className="history-container option" onClick={() => redirect("history")}>
                         <div className="history-content">
                             <div className="option-legend">
                                 <p>Expenses</p>

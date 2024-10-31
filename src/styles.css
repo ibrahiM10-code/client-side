@@ -330,6 +330,7 @@ footer > hr {
     height: 172px;
     margin: 20px 15px;
     box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    cursor: pointer;
 }
 
 .option:hover {
@@ -441,4 +442,103 @@ footer > hr {
     position: relative;
     bottom: 215px;
     left: 190px;
+}
+
+/* Estilos de la lista de metodos de pago. */
+.pms-container {
+    background-color: #F6F3F3;
+    box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    display: inline-block;
+    margin: 100px 510px;
+    width: 900px;
+    padding: 30px 40px;
+    border-radius: 15px;
+}
+
+.pms-header > h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.pms-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-method-header > p {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+
+.user-pmtds-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.payment-method {
+    background-color: #fffcfc;
+    box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    border-radius: 10px;
+    width: 350px;
+    padding: 20px 40px;
+    margin: 20px 0;
+}
+
+.payment-method:hover {
+    transform: scale(1.02);
+    transition: 0.4s;
+}
+
+.payment-method-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.money-spent {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.money-spent > p {
+    font-weight: 500;
+}
+
+.icon-container {
+    background-color: #007bff;
+    border-radius: 50%;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.fa-trash-alt {
+    font-size: 1.5em; /* Tamaño igualado al del ejemplo */
+}
+
+.fa-trash-alt:hover {
+    color: rgba(125, 7, 7, 0.859);
+}
+
+.modal-form-btn {
+    background-color: hsl(226, 71%, 29%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px;
+    text-transform: uppercase;
 }
