@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import LandingPage from "../pages/LandingPage";
 import BasicDemo from "../pages/HistoryPage";
 import PaymentMethodsPage from "../pages/PaymentMethodsPage";
+import ExpensesPage from "../pages/ExpensesPage";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
         
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/history" element={<BasicDemo />}></Route>
           <Route path="/your-payment-methods" element={<PaymentMethodsPage />}></Route>
+          <Route path="/your-expenses" element={<ExpensesPage />} />
       </Routes>
     </BrowserRouter>
   );
