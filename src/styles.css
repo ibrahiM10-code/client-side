@@ -543,3 +543,42 @@ footer > hr {
     text-transform: uppercase;
 }
 
+/* Estilos del formulario de los modal */
+.add-expense-form {
+    padding: 30px 0;
+    /* border: 1px solid black; */
+}
+
+.add-expense-form > input {
+    margin-bottom: 40px;
+}
+
+.add-expense-form > button {
+    background-color: hsl(245, 75%, 52%);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 18px 20px -1px rgba(219, 219, 219, 1);
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.add-pm-form {
+    padding: 40px 0;
+}
+
+.add-pm-form > label {
+    margin: 20px 0 10px 0;
+}
+
+.add-pm-form > button {
+    background-color: hsl(245, 75%, 52%);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 18px 20px -1px rgba(219, 219, 219, 1);
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+    margin-top: 50px;
+}
