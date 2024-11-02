@@ -12,7 +12,13 @@ function DetailsCard({
     <>
       <div className="payment-method">
         <div className="payment-method-header">
-          <div className="icon-container mr-3">
+          <div
+            className={
+              paymentMethodName
+                ? "icon-container-pm mr-3"
+                : "icon-container-e mr-3"
+            }
+          >
             <i
               className={
                 paymentMethodName

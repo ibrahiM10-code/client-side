@@ -444,15 +444,21 @@ footer > hr {
     left: 190px;
 }
 
-/* Estilos de la lista de metodos de pago. */
+/* Estilos de la lista de metodos de pago y gastos. */
 .pms-container {
-    background-color: #F6F3F3;
+    background-color: #cbd7ff;
     box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    color: #000000;
     display: inline-block;
     margin: 100px 510px;
     width: 900px;
     padding: 30px 40px;
     border-radius: 15px;
+}
+
+.pms-container > hr {
+   color: #f8f8f8;
+   border-width: 2px;
 }
 
 .pms-header > h3 {
@@ -478,7 +484,7 @@ footer > hr {
 }
 
 .payment-method {
-    background-color: #fffcfc;
+    background-color: #b4c6f3;
     box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
     border-radius: 10px;
     width: 350px;
@@ -496,6 +502,10 @@ footer > hr {
     justify-content: space-between;
 }
 
+.fa-dollar-sign {
+    color:green;
+}
+
 .money-spent {
     display: flex;
     justify-content: space-between;
@@ -506,8 +516,19 @@ footer > hr {
     font-weight: 500;
 }
 
-.icon-container {
+.icon-container-pm {
     background-color: #007bff;
+    border-radius: 50%;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container-e {
+    background-color: #84bd80;
     border-radius: 50%;
     padding: 15px;
     width: 60px;
@@ -581,4 +602,42 @@ footer > hr {
     font-weight: 700;
     padding: 10px;
     margin-top: 50px;
+}
+
+/* Estilos del Sidebar */
+.sb-container {
+    position: absolute;
+    width: 110px;
+    height: 88.4%;
+    background-color: #F6F3F3;
+}
+
+.sb-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.sb-item {
+    width: 40px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.sb-item:hover {
+    transform: scale(1.02);
+    transition: 0.4s;
+}
+
+.sb-item > img {
+    margin-bottom: 10px;
+    width: 42px;
+}
+
+.sb-item > p {
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
 }
