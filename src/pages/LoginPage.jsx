@@ -29,6 +29,7 @@ function LoginPage() {
                     <button type="submit">Iniciar Sesión</button>
                 </form>
                 <p>¿No tienes una cuenta? <Link to="/register">Registrarse</Link></p>
+                <p>¿Olvidaste tu Contraseña? <Link to="/change-password">Recuperar Contraseña</Link></p>
             </div>
             {isActive && (
                 <Stack className="alert-register" sx={{ width: '20%' }} spacing={2}>
