@@ -330,6 +330,7 @@ footer > hr {
     height: 172px;
     margin: 20px 15px;
     box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    cursor: pointer;
 }
 
 .option:hover {
@@ -441,4 +442,204 @@ footer > hr {
     position: relative;
     bottom: 215px;
     left: 190px;
+}
+
+/* Estilos de la lista de metodos de pago y gastos. */
+.pms-container {
+    background-color: #cbd7ff;
+    box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    color: #000000;
+    display: inline-block;
+    margin: 100px 510px;
+    width: 900px;
+    padding: 30px 40px;
+    border-radius: 15px;
+}
+
+.pms-container > hr {
+   color: #f8f8f8;
+   border-width: 2px;
+}
+
+.pms-header > h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.pms-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-method-header > p {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+
+.user-pmtds-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.payment-method {
+    background-color: #b4c6f3;
+    box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
+    border-radius: 10px;
+    width: 350px;
+    padding: 20px 40px;
+    margin: 20px 0;
+}
+
+.payment-method:hover {
+    transform: scale(1.02);
+    transition: 0.4s;
+}
+
+.payment-method-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-dollar-sign {
+    color:green;
+}
+
+.money-spent {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.money-spent > p {
+    font-weight: 500;
+}
+
+.icon-container-pm {
+    background-color: #007bff;
+    border-radius: 50%;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container-e {
+    background-color: #84bd80;
+    border-radius: 50%;
+    padding: 15px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.fa-trash-alt {
+    font-size: 1.5em; /* Tamaño igualado al del ejemplo */
+}
+
+.fa-trash-alt:hover {
+    color: rgba(125, 7, 7, 0.859);
+}
+
+.modal-form-btn {
+    background-color: hsl(226, 71%, 29%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* Estilos del formulario de los modal */
+.add-expense-form {
+    padding: 30px 0;
+}
+
+.add-expense-form > input, select {
+    margin-bottom: 30px;
+}
+
+.add-expense-form > button {
+    background-color: hsl(245, 75%, 52%);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 18px 20px -1px rgba(219, 219, 219, 1);
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.add-pm-form {
+    padding: 40px 0;
+}
+
+.add-pm-form > label {
+    margin: 20px 0 10px 0;
+}
+
+.add-pm-form > button {
+    background-color: hsl(245, 75%, 52%);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 18px 20px -1px rgba(219, 219, 219, 1);
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+}
+
+/* Estilos del Sidebar */
+.sb-container {
+    position: absolute;
+    width: 110px;
+    height: 88.4%;
+    background-color: #F6F3F3;
+}
+
+.sb-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.sb-item {
+    width: 40px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.sb-item:hover {
+    transform: scale(1.02);
+    transition: 0.4s;
+}
+
+.sb-item > img {
+    margin-bottom: 10px;
+    width: 42px;
+}
+
+.sb-item > p {
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Estilos de la pagina del historial */
+.bar-chart {
+    margin: 70px 700px;
 }
