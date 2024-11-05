@@ -3,7 +3,7 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import HomePage from "../pages/HomePage";
 import LandingPage from "../pages/LandingPage";
-import BasicDemo from "../pages/HistoryPage";
+import HistoryPage from "../pages/HistoryPage";
 import PaymentMethodsPage from "../pages/PaymentMethodsPage";
 import ExpensesPage from "../pages/ExpensesPage";
 import RequestPswChangePage from "../pages/RequestPswChangePage";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/home" element={<HomePage />}></Route>
-        <Route path="/history" element={<BasicDemo />}></Route>
+        <Route path="/your-history" element={<HistoryPage />}></Route>
         <Route
           path="/your-payment-methods"
           element={<PaymentMethodsPage />}

@@ -28,6 +28,10 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
               <input type="text" className="form-control" />
               <label htmlFor="">Amount Spent</label>
               <input type="number" className="form-control" />
+              <label htmlFor="">Category</label>
+              <select name="" id="" className="form-control">
+                <option value="Entertainment">Entertainment</option>
+              </select>
               <label htmlFor="">Payment method used</label>
               <select name="" id="" className="form-control"></select>
               <button>Add expense</button>
@@ -36,7 +40,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
             <form className="add-pm-form">
               <h4 className="mb-4">Add Payment Method</h4>
               <label htmlFor="">Payment Method Name</label>
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control mb-4" />
               <button>Add payment method</button>
             </form>
           )}
