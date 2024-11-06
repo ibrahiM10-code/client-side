@@ -669,6 +669,10 @@ body.change-psw {
     box-sizing: border-box;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column; /* Permite que los elementos se apilen verticalmente */
+    justify-content: space-between; /* Asegura que los elementos se distribuyan a lo largo del contenedor */
+    min-height: 400px; /* Para asegurar que haya suficiente espacio para las alertas */
   }
   
   /* Título del formulario */
@@ -742,26 +746,64 @@ body.change-psw {
     margin-top: 20px; /* Separación de la alerta con el formulario */
     box-sizing: border-box; /* Para que no se desborde */
     text-align: center; /* Centra el texto dentro de la alerta */
+    position: absolute; /* Posiciona la alerta al final del contenedor */
+    bottom: 20px; /* Asegura que la alerta quede al final del contenedor */
+    left: 50%; /* Centra la alerta horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino para centrar completamente */
+  }
+  
+  /* Animación para la alerta */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   /* Estilo para alerta de éxito */
   .alert-register .MuiAlert-root {
     font-size: 1rem;
     border-radius: 8px;
-    padding: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out; /* Animación suave al aparecer */
   }
   
   /* Estilo para alerta de éxito */
   .alert-register .MuiAlert-success {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: #d4edda; /* Verde suave */
+    color: #155724; /* Verde oscuro */
+    border-left: 6px solid #28a745; /* Barra verde para más énfasis */
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .alert-register .MuiAlert-success:hover {
+    transform: scale(1.02); /* Le da un efecto de "agrandar" cuando se pasa el mouse */
   }
   
   /* Estilo para alerta de error */
   .alert-register .MuiAlert-error {
-    background-color: #f8d7da;
-    color: #721c24;
+    background-color: #f8d7da; /* Rojo suave */
+    color: #721c24; /* Rojo oscuro */
+    border-left: 6px solid #dc3545; /* Barra roja para más énfasis */
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
+  
+  .alert-register .MuiAlert-error:hover {
+    transform: scale(1.02); /* Le da un efecto de "agrandar" cuando se pasa el mouse */
+  }
+  
   
 
 /* Estilos NewPswCodePage */
@@ -789,6 +831,11 @@ body.verify-code-page {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Permite que los elementos se apilen verticalmente */
+    justify-content: space-between; /* Asegura que los elementos se distribuyan a lo largo del contenedor */
+    min-height: 400px; /* Para asegurar que haya suficiente espacio para las alertas */
   }
   
   /* Título del formulario */
@@ -858,148 +905,276 @@ body.verify-code-page {
   
   /* Estilos para la alerta de éxito */
   .alert-register {
-    margin-top: 20px;
-    text-align: center;
+    width: 100%; /* Asegura que la alerta ocupe todo el ancho */
+    margin-top: 20px; /* Separación de la alerta con el formulario */
+    box-sizing: border-box; /* Para que no se desborde */
+    text-align: center; /* Centra el texto dentro de la alerta */
+    position: absolute; /* Posiciona la alerta al final del contenedor */
+    bottom: 20px; /* Asegura que la alerta quede al final del contenedor */
+    left: 50%; /* Centra la alerta horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino para centrar completamente */
+    padding: 0;
+    animation: slideIn 0.5s ease-out, fadeIn 0.5s ease-out; /* Animación combinada */
   }
   
+  /* Animaciones */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Empuja la alerta desde abajo */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Vuelve a la posición original */
+    }
+  }
+  
+  /* Estilo para alerta de éxito */
   .alert-register .MuiAlert-root {
-    width: 100%;
     font-size: 1rem;
-    margin-top: 10px;
     border-radius: 8px;
-    padding: 12px;
+    padding: 16px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea los iconos y texto a la izquierda */
+    margin: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     font-weight: 500;
+    position: relative;
+    animation: fadeIn 0.5s ease-out, scaleUp 0.3s ease-out; /* Animación combinada */
   }
   
   /* Estilo para alerta de éxito */
   .alert-register .MuiAlert-success {
-    background-color: #d4edda;
-    color: #155724;
+    background-color: #d4edda; /* Verde suave */
+    color: #155724; /* Verde oscuro */
+    border-left: 6px solid #28a745; /* Barra verde para más énfasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .alert-register .MuiAlert-success:hover {
+    transform: scale(1.02); /* Le da un efecto de "agrandar" cuando se pasa el mouse */
   }
   
   /* Estilo para alerta de error */
   .alert-register .MuiAlert-error {
-    background-color: #f8d7da;
-    color: #721c24;
+    background-color: #f8d7da; /* Rojo suave */
+    color: #721c24; /* Rojo oscuro */
+    border-left: 6px solid #dc3545; /* Barra roja para más énfasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
+  
+  .alert-register .MuiAlert-error:hover {
+    transform: scale(1.02); /* Le da un efecto de "agrandar" cuando se pasa el mouse */
+  }
+  
+  /* Animación de escala para darle más impacto */
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
   
 /* Diseño RequestPswChangePage */
 
 /* Estilos generales */
 body.change-psw-page {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5; /* Fondo gris suave */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
-  overflow: hidden;
-}
-
-/* Contenedor del formulario */
-.form-container {
-  background-color: #ffffff; /* Fondo blanco */
-  padding: 40px 30px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  max-width: 400px;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-/* Título del formulario */
-.form-container h1 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #003366; /* Usamos el azul oscuro de la cabecera */
-  font-weight: 700;
-}
-
-/* Etiquetas y campos de entrada */
-.form-container label {
-  font-size: 0.9rem;
-  color: #333333;
-  display: block;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-.form-container input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #ddd; /* Bordes suaves */
-  border-radius: 8px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  transition: border 0.3s ease-in-out;
-}
-
-.form-container input[type="password"]:focus {
-  border-color: #4A90E2; /* Azul claro al enfocar */
-  outline: none;
-}
-
-/* Botón de envío */
-.form-container button {
-  width: 100%;
-  padding: 14px 20px;
-  background-color: #4A90E2; /* Usamos el azul claro */
-  color: white;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form-container button:hover {
-  background-color: #357ABD; /* Azul más oscuro al pasar el ratón */
-}
-
-/* Enlace para iniciar sesión */
-.form-container p {
-  margin-top: 20px;
-}
-
-.form-container p a {
-  color: #4A90E2; /* Azul claro para el enlace */
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.form-container p a:hover {
-  text-decoration: underline;
-}
-
-/* Estilos para la alerta de éxito */
-.alert-register {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.alert-register .MuiAlert-root {
-  width: 100%;
-  font-size: 1rem;
-  margin-top: 10px;
-  border-radius: 8px;
-  padding: 12px;
-  box-sizing: border-box;
-  font-weight: 500;
-}
-
-/* Estilo para alerta de éxito */
-.alert-register .MuiAlert-success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-/* Estilo para alerta de error */
-.alert-register .MuiAlert-error {
-  background-color: #f8d7da;
-  color: #721c24;
-}
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5; /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    overflow: hidden;
+  }
+  
+  /* Contenedor del formulario */
+  .form-container {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px; /* Asegura suficiente espacio para las alertas */
+  }
+  
+  /* Título del formulario */
+  .form-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #003366; /* Usamos el azul oscuro de la cabecera */
+    font-weight: 700;
+  }
+  
+  /* Etiquetas y campos de entrada */
+  .form-container label {
+    font-size: 0.9rem;
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .form-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd; /* Bordes suaves */
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  .form-container input[type="password"]:focus {
+    border-color: #4A90E2; /* Azul claro al enfocar */
+    outline: none;
+  }
+  
+  /* Botón de envío */
+  .form-container button {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #4A90E2; /* Usamos el azul claro */
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-container button:hover {
+    background-color: #357ABD; /* Azul más oscuro al pasar el ratón */
+  }
+  
+  /* Enlace para iniciar sesión */
+  .form-container p {
+    margin-top: 20px;
+  }
+  
+  .form-container p a {
+    color: #4A90E2; /* Azul claro para el enlace */
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  .form-container p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Estilos para la alerta de éxito */
+  .alert-register {
+    width: 100%; /* Asegura que la alerta ocupe todo el ancho */
+    margin-top: 20px; /* Separación de la alerta con el formulario */
+    box-sizing: border-box; /* Para que no se desborde */
+    text-align: center; /* Centra el texto dentro de la alerta */
+    position: absolute; /* Posiciona la alerta al final del contenedor */
+    bottom: 20px; /* Asegura que la alerta quede al final del contenedor */
+    left: 50%; /* Centra la alerta horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino para centrar completamente */
+    animation: slideIn 0.5s ease-out, fadeIn 0.5s ease-out; /* Animación combinada */
+    padding: 0;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px); /* Empuja la alerta desde abajo */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Vuelve a la posición original */
+    }
+  }
+  
+  /* Estilo para alerta de éxito */
+  .alert-register .MuiAlert-root {
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea los iconos y texto a la izquierda */
+    margin: 10px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    position: relative;
+    animation: fadeIn 0.5s ease-out, scaleUp 0.3s ease-out; /* Animación combinada */
+  }
+  
+  /* Estilo para alerta de éxito */
+  .alert-register .MuiAlert-success {
+    background-color: #d4edda; /* Verde suave */
+    color: #155724; /* Verde oscuro */
+    border-left: 6px solid #28a745; /* Barra verde para más énfasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .alert-register .MuiAlert-success:hover {
+    transform: scale(1.02); /* Le da un efecto de "agrandar" cuando se pasa el mouse */
+  }
+  
+  /* Estilo para alerta de error */
+  .alert-register .MuiAlert-error {
+    background-color: #f8d7da; /* Rojo suave */
+    color: #721c24; /* Rojo oscuro */
+    border-left: 6px solid #dc3545; /* Barra roja para más énfasis */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .alert-register .MuiAlert-error:hover {
+    transform: scale(1.02); /* Le da un efecto de "agrandar" cuando se pasa el mouse */
+  }
+  
+  /* Animación de escala para darle más impacto */
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
