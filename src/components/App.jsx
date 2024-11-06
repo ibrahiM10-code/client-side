@@ -6,8 +6,8 @@ import LandingPage from "../pages/LandingPage";
 import HistoryPage from "../pages/HistoryPage";
 import PaymentMethodsPage from "../pages/PaymentMethodsPage";
 import ExpensesPage from "../pages/ExpensesPage";
-import RequestPswChangePage from "../pages/RequestPswChangePage";
-import NewPswCodePage from "../pages/NewPswCodePage";
+import ChangePasswordPage from "../pages/ChangePasswordPage";
+import VerifyCodePage from "../pages/VerifyCodePage";
 import ChangePswPage from "../pages/ChangePswPage";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
@@ -27,11 +27,11 @@ function App() {
         <Route path="/your-expenses" element={<ExpensesPage />} />
         <Route
           path="/request-password-change"
-          element={<RequestPswChangePage />}
+          element={<ChangePasswordPage />}
         ></Route>
         <Route
           path="/code-change-password"
-          element={<NewPswCodePage />}
+          element={<VerifyCodePage />}
         ></Route>
         <Route path="/change-password" element={<ChangePswPage />}></Route>
       </Routes>

@@ -196,7 +196,7 @@ footer > hr {
 /* Estilos del formulario de registro */
 .form-container {
     max-width: 400px;
-    margin: 50px auto;
+    margin: 30px auto;
     padding: 10px 30px;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -642,4 +642,267 @@ footer > hr {
 /* Estilos de la pagina del historial */
 .bar-chart {
     margin: 70px 700px;
+}
+
+/* Estilos ChangePswPage */
+
+/* Estilos generales */
+body.change-psw {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-color: #ffffff;
+    /* Fondo blanco */
+    padding: 40px 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+/* Título del formulario */
+.form-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #003366;
+    /* Usamos el azul oscuro de la cabecera */
+    font-weight: 700;
+}
+
+/* Etiquetas y campos de entrada */
+.form-container label {
+    font-size: 0.9rem;
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-container input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    /* Bordes suaves */
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-container input[type="email"]:focus {
+    border-color: #4A90E2;
+    /* Azul claro al enfocar */
+    outline: none;
+}
+
+/* Botón de envío */
+.form-container button {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #4A90E2;
+    /* Usamos el azul claro */
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #357ABD;
+    /* Azul más oscuro al pasar el ratón */
+}
+
+/* Enlace para iniciar sesión */
+.form-container p {
+    margin-top: 20px;
+}
+
+.form-container p a {
+    color: #4A90E2;
+    /* Azul claro para el enlace */
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la alerta de éxito */
+.alert-register {
+    width: 100%;
+    /* Asegura que la alerta ocupe todo el ancho */
+    margin-top: 20px;
+    /* Separación de la alerta con el formulario */
+    box-sizing: border-box;
+    /* Para que no se desborde */
+    text-align: center;
+    /* Centra el texto dentro de la alerta */
+}
+
+/* Estilo para alerta de éxito */
+.alert-register .MuiAlert-root {
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Estilo para alerta de éxito */
+.alert-register .MuiAlert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Estilo para alerta de error */
+.alert-register .MuiAlert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+/* Estilos NewPswCodePage */
+
+/* Estilos generales */
+body.verify-code-page {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    min-height: 100vh;
+    /* Asegura que ocupe toda la altura de la ventana */
+    overflow: hidden;
+}
+
+/* Contenedor del formulario */
+.form-container input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    /* Bordes suaves */
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-container input[type="text"]:focus {
+    border-color: #4A90E2;
+    /* Azul claro al enfocar */
+    outline: none;
+}
+
+/* Estilos para la alerta de éxito */
+.alert-register {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert-register .MuiAlert-root {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+/* Estilo para alerta de éxito */
+.alert-register .MuiAlert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Estilo para alerta de error */
+.alert-register .MuiAlert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Diseño RequestPswChangePage */
+
+/* Estilos generales */
+body.change-psw-page {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    /* Fondo gris suave */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    min-height: 100vh;
+    /* Asegura que ocupe toda la altura de la ventana */
+    overflow: hidden;
+}
+
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    /* Bordes suaves */
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-container input[type="password"]:focus {
+    border-color: #4A90E2;
+    /* Azul claro al enfocar */
+    outline: none;
+}
+
+/* Estilos para la alerta de éxito */
+.alert-register {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert-register .MuiAlert-root {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+/* Estilo para alerta de éxito */
+.alert-register .MuiAlert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Estilo para alerta de error */
+.alert-register .MuiAlert-error {
+    background-color: #f8d7da;
+    color: #721c24;
 }
