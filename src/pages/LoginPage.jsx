@@ -1,16 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { apiAuthUrl } from "../helpers/apiUrl";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import axios from "axios";
 
 function LoginPage() {
   const [isActive, setIsActive] = useState(false);
+  const email = useRef();
+  const password = useRef();
 
-  const logUser = (e) => {
-    console.log("Logged in!");
+  const logUser = async (e) => {
     e.preventDefault();
+    const response = await axios.post(`${apiAuthUrl}/login`, {
+      email: email.current.value,
+      password: password.current.value,
+    });
+    console.log(response.data);
   };
 
   return (
@@ -20,10 +28,16 @@ function LoginPage() {
         <h1>Iniciar Sesión</h1>
         <form id="login-form" onSubmit={logUser}>
           <label htmlFor="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" ref={email} required />
 
           <label htmlFor="password">Contraseña</label>
-          <input type="password" id="password" name="password" required />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            ref={password}
+            required
+          />
 
           <button type="submit">Iniciar Sesión</button>
         </form>

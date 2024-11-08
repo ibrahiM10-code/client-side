@@ -1,0 +1,1 @@
+export const apiAuthUrl = "http://localhost:3001/api/auth";
