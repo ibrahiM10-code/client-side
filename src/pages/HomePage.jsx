@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthProvider";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function HomePage() {
 
   return (
     <>
-      <NavBar loggedIn={true} />
+      <NavBar />
       <div className="menu-container">
         <div className="first-row-options">
           <div className="latest-expense-container option">

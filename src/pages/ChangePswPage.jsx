@@ -20,7 +20,7 @@ function ChangePswPage() {
 
   return (
     <>
-      <NavBar loggedIn={false} />
+      <NavBar />
       <div className="form-container">
         <h1>Recuperar Contraseña</h1>
         <form id="reset-form" onSubmit={handleSubmit}>

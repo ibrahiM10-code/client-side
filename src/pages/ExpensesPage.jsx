@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar";
 function ExpensesPage() {
   return (
     <>
-      <NavBar loggedIn={true} />
+      <NavBar />
       <Sidebar />
       <EPContainer title={"your expenses"} btnText={"add a new expense"}>
         <DetailsCard expenseName={"IPhone"} amountSpent={1500000} />

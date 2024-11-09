@@ -28,7 +28,7 @@ function VerifyCodePage() {
 
   return (
     <>
-      <NavBar loggedIn={false} />
+      <NavBar />
       <div className="form-container">
         <h1>Verificar Código</h1>
         <form id="verify-code-form" onSubmit={handleSubmit}>

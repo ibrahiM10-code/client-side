@@ -41,12 +41,14 @@ function RegisterPage() {
     if (response.status === 201) {
       alert("User registered!");
       navigate("/login");
+    } else {
+      alert("An error ocurred, try again.");
     }
   };
 
   return (
     <>
-      <NavBar loggedIn={false} />
+      <NavBar />
       <div className="form-container">
         <h1>Registro</h1>
         <form id="registration-form" onSubmit={registerUser}>

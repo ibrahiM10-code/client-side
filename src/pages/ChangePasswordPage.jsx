@@ -25,7 +25,7 @@ function ChangePasswordPage() {
 
   return (
     <>
-      <NavBar loggedIn={false} />
+      <NavBar />
       <div className="form-container">
         <h1>Cambiar Contraseña</h1>
         <form id="change-password-form" onSubmit={handleSubmit}>

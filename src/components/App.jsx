@@ -9,32 +9,35 @@ import ExpensesPage from "../pages/ExpensesPage";
 import ChangePasswordPage from "../pages/ChangePasswordPage";
 import VerifyCodePage from "../pages/VerifyCodePage";
 import ChangePswPage from "../pages/ChangePswPage";
+import { AuthProvider } from "../context/AuthProvider";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/register" element={<RegisterPage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/home" element={<HomePage />}></Route>
-        <Route path="/your-history" element={<HistoryPage />}></Route>
-        <Route
-          path="/your-payment-methods"
-          element={<PaymentMethodsPage />}
-        ></Route>
-        <Route path="/your-expenses" element={<ExpensesPage />} />
-        <Route
-          path="/request-password-change"
-          element={<ChangePasswordPage />}
-        ></Route>
-        <Route
-          path="/code-change-password"
-          element={<VerifyCodePage />}
-        ></Route>
-        <Route path="/change-password" element={<ChangePswPage />}></Route>
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/home" element={<HomePage />}></Route>
+          <Route path="/your-history" element={<HistoryPage />}></Route>
+          <Route
+            path="/your-payment-methods"
+            element={<PaymentMethodsPage />}
+          ></Route>
+          <Route path="/your-expenses" element={<ExpensesPage />} />
+          <Route
+            path="/request-password-change"
+            element={<ChangePasswordPage />}
+          ></Route>
+          <Route
+            path="/code-change-password"
+            element={<VerifyCodePage />}
+          ></Route>
+          <Route path="/change-password" element={<ChangePswPage />}></Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
