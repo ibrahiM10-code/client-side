@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiAuthUrl } from "../helpers/apiUrl";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ import axios from "axios";
 
 function LoginPage() {
   const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate();
   const email = useRef();
   const password = useRef();
 
@@ -18,12 +19,17 @@ function LoginPage() {
       email: email.current.value,
       password: password.current.value,
     });
-    console.log(response.data);
+    if (response.status === 200) {
+      localStorage.setItem("token", response.data.token);
+      navigate("/");
+    } else {
+      alert("Wrong credentials.");
+    }
   };
 
   return (
     <>
-      <NavBar loggedIn={false} />
+      <NavBar />
       <div className="form-container">
         <h1>Iniciar Sesión</h1>
         <form id="login-form" onSubmit={logUser}>
