@@ -72,7 +72,16 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
 
   const submitExpense = async (event) => {
     event.preventDefault();
-    const response = await axios.post();
+    const response = await axios.post(
+      `${apiProcessUrl}/user-expense`,
+      userExpense
+    );
+    if (response.status === 201) {
+      alert("Expense added succesfully!");
+      setOpenFormModal(false);
+    } else {
+      alert("Failed to add an expense.");
+    }
   };
 
   return (
@@ -80,37 +89,50 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
       <Modal open={openFormModal} onClose={handleClose}>
         <Box sx={style}>
           {formTitle === "Add a new expense." ? (
-            <form className="add-expense-form">
+            <form className="add-expense-form" onSubmit={submitExpense}>
               <h4 className="mb-4">Add Expense</h4>
               <label htmlFor="">Expense Name</label>
               <input
                 type="text"
                 className="form-control"
+                name="expense_desc"
                 onChange={handleExpense}
               />
               <label htmlFor="">Amount Spent</label>
               <input
                 type="number"
                 className="form-control"
+                name="expense_amount"
                 onChange={handleExpense}
               />
               <label htmlFor="">Category</label>
-              <select name="" id="" className="form-control">
-                <option value="Entertainment">Entertainment</option>
+              <select
+                name="id_category"
+                id=""
+                className="form-control"
+                onChange={handleExpense}
+              >
+                <option value={1}>Entertainment</option>
+                <option value={2}>Clothing</option>
               </select>
               <label htmlFor="">Payment method used</label>
-              <select name="" id="" className="form-control">
+              <select
+                name="id_payment_method"
+                id=""
+                className="form-control"
+                onChange={handleExpense}
+              >
                 {paymentMethods.length === 0 ? (
                   <option>You must add payment methods.</option>
                 ) : (
                   paymentMethods.map((pms, index) => (
-                    <option key={index} value={pms.method}>
+                    <option key={index} value={pms.id_payment_method}>
                       {pms.method}
                     </option>
                   ))
                 )}
               </select>
-              <button>Add expense</button>
+              <button type="submit">Add expense</button>
             </form>
           ) : (
             <form className="add-pm-form" onSubmit={submitPaymentMethod}>

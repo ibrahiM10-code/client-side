@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { apiAuthUrl } from "../helpers/apiUrl";
+import AuthContext from "../context/AuthProvider";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Alert from "@mui/material/Alert";
@@ -9,6 +10,7 @@ import axios from "axios";
 
 function LoginPage() {
   const [isActive, setIsActive] = useState(false);
+  const { setToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const email = useRef();
   const password = useRef();
@@ -20,8 +22,8 @@ function LoginPage() {
       password: password.current.value,
     });
     if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
-      navigate("/");
+      setToken(response.data.token);
+      navigate("/home");
     } else {
       alert("Wrong credentials.");
     }

@@ -32,7 +32,7 @@ nav > ul {
 nav > ul > li {
     display: inline-block;
     /* margin-right: 100px; */
-    margin: 15px 100px 0 0;
+    margin: 15px 70px 0 0;
     font-size: 1.15rem;
 }
 
@@ -45,22 +45,27 @@ nav > ul > li {
     color: white;
     padding: 16px 30px;
     border-radius: 10px;
-    margin-right: 100px;
     text-decoration: none;
+    border: none;
+}
+
+.to-login-btn:hover {
+    background-color: #357ABD;
+    transition: .5s;
 }
 
 #profile-pic {
     width: 50px;
     position: relative;
-    top: -10px;
     right: 40px;
+    bottom: 4px;
 }
 
 .welcome-msg {
     font-weight: 700;
     font-size: 1.18rem;
     position: relative;
-    bottom: 6px;
+    /* top: px; */
 }
 
 /* Estilos del Footer */
@@ -600,6 +605,7 @@ footer > hr {
     font-weight: 700;
     padding: 10px;
 }
+
 
 /* Estilos del Sidebar */
 .sb-container {

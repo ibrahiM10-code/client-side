@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthProvider";
 
 function NavBar() {
@@ -18,6 +18,11 @@ function NavBar() {
                   id="profile-pic"
                   alt="profile picture"
                 />
+              </li>
+              <li>
+                <NavLink to="/logout">
+                  <button className="to-login-btn">Log Out</button>
+                </NavLink>
               </li>
             </>
           ) : (

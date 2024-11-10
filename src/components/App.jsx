@@ -9,13 +9,14 @@ import ExpensesPage from "../pages/ExpensesPage";
 import ChangePasswordPage from "../pages/ChangePasswordPage";
 import VerifyCodePage from "../pages/VerifyCodePage";
 import ChangePswPage from "../pages/ChangePswPage";
+import LogOut from "./LogOut";
 import { AuthProvider } from "../context/AuthProvider";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
@@ -36,9 +37,10 @@ function App() {
             element={<VerifyCodePage />}
           ></Route>
           <Route path="/change-password" element={<ChangePswPage />}></Route>
+          <Route path="/logout" element={<LogOut />}></Route>
         </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
