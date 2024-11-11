@@ -10,7 +10,7 @@ import axios from "axios";
 
 function LoginPage() {
   const [isActive, setIsActive] = useState(false);
-  const { setToken } = useContext(AuthContext);
+  const { setToken, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const email = useRef();
   const password = useRef();
@@ -23,6 +23,7 @@ function LoginPage() {
     });
     if (response.status === 200) {
       setToken(response.data.token);
+      setUser(response.data.user_id);
       navigate("/home");
     } else {
       alert("Wrong credentials.");

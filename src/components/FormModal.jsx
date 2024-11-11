@@ -18,7 +18,7 @@ const style = {
 };
 
 function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
-  const { config } = useContext(AuthContext);
+  const { config, userId } = useContext(AuthContext);
   const [paymentMethod, setPaymentMethod] = useState();
   const [userExpense, setUserExpense] = useState();
   const [paymentMethods, setPaymentMethods] = useState([]);
@@ -58,7 +58,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   const submitPaymentMethod = async (event) => {
     event.preventDefault();
     const response = await axios.post(
-      `${apiProcessUrl}/payment-methods`,
+      `${apiProcessUrl}/payment-method`,
       paymentMethod,
       config
     );
@@ -72,10 +72,14 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
 
   const submitExpense = async (event) => {
     event.preventDefault();
+    console.log(userExpense);
+
     const response = await axios.post(
       `${apiProcessUrl}/user-expense`,
-      userExpense
+      userExpense,
+      config
     );
+    console.log(response);
     if (response.status === 201) {
       alert("Expense added succesfully!");
       setOpenFormModal(false);
@@ -112,21 +116,24 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                 className="form-control"
                 onChange={handleExpense}
               >
+                <option selected disabled>
+                  Choose a payment method
+                </option>
                 <option value={1}>Entertainment</option>
                 <option value={2}>Clothing</option>
               </select>
               <label htmlFor="">Payment method used</label>
               <select
-                name="id_payment_method"
+                name="id_user_payment_method"
                 id=""
                 className="form-control"
                 onChange={handleExpense}
               >
                 {paymentMethods.length === 0 ? (
-                  <option>You must add payment methods.</option>
+                  <option disabled>You must add payment methods.</option>
                 ) : (
                   paymentMethods.map((pms, index) => (
-                    <option key={index} value={pms.id_payment_method}>
+                    <option key={index} value={pms.id_user_payment_method}>
                       {pms.method}
                     </option>
                   ))
