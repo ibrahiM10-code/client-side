@@ -133,7 +133,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                   <option disabled>You must add payment methods.</option>
                 ) : (
                   paymentMethods.map((pms, index) => (
-                    <option key={index} value={pms.id_user_payment_method}>
+                    <option key={index} value={pms.id_payment_method}>
                       {pms.method}
                     </option>
                   ))
