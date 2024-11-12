@@ -15,7 +15,7 @@ function ExpensesPage() {
     const bringExpenses = async () => {
       try {
         const response = await axios.get(
-          `${apiProcessUrl}/user-expenses`,
+          `${apiProcessUrl}/user-expense/last-five`,
           config
         );
         setExpense(response.data);
@@ -31,16 +31,17 @@ function ExpensesPage() {
       <NavBar />
       <Sidebar />
       <EPContainer title={"your expenses"} btnText={"add a new expense"}>
-        {expense.map((exp, index) => (
-          <DetailsCard
-            key={index}
-            expenseName={exp.expense_desc}
-            amountSpent={1500000}
-          />
-        ))}
-        <DetailsCard expenseName={"IPhone"} amountSpent={1500000} />
-        <DetailsCard expenseName={"IPhone"} amountSpent={1500000} />
-        <DetailsCard expenseName={"IPhone"} amountSpent={1500000} />
+        {expense.length === 0 ? (
+          <h1>No expenses added</h1>
+        ) : (
+          expense.map((exp, index) => (
+            <DetailsCard
+              key={index}
+              expenseName={exp.expense_desc}
+              amountSpent={1500000}
+            />
+          ))
+        )}
       </EPContainer>
     </>
   );

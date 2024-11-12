@@ -20,8 +20,9 @@ const style = {
 function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   const { config, userId } = useContext(AuthContext);
   const [paymentMethod, setPaymentMethod] = useState();
-  const [userExpense, setUserExpense] = useState();
+  const [userExpense, setUserExpense] = useState({ id_user: userId });
   const [paymentMethods, setPaymentMethods] = useState([]);
+  // console.log(userId);
 
   useEffect(() => {
     const bringPaymentMethods = async () => {
@@ -47,6 +48,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
 
   const handleExpense = (event) => {
     const { name, value } = event.target;
+    console.log(userId);
     setUserExpense((prevValue) => {
       return {
         ...prevValue,
@@ -132,11 +134,16 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                 {paymentMethods.length === 0 ? (
                   <option disabled>You must add payment methods.</option>
                 ) : (
-                  paymentMethods.map((pms, index) => (
-                    <option key={index} value={pms.id_payment_method}>
-                      {pms.method}
+                  <>
+                    <option disabled selected>
+                      Choose a payment method
                     </option>
-                  ))
+                    {paymentMethods.map((pms, index) => (
+                      <option key={index} value={pms.id_payment_method}>
+                        {pms.method}
+                      </option>
+                    ))}
+                  </>
                 )}
               </select>
               <button type="submit">Add expense</button>

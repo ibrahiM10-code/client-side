@@ -451,7 +451,7 @@ footer > hr {
 
 /* Estilos de la lista de metodos de pago y gastos. */
 .pms-container {
-    background-color: #cbd7ff;
+    background-color: #ddd;
     box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
     color: #000000;
     display: inline-block;
@@ -489,7 +489,7 @@ footer > hr {
 }
 
 .payment-method {
-    background-color: #b4c6f3;
+    background-color: #f8f8f8;
     box-shadow: 7px 9px 5px 0px rgba(0,0,0,0.02);
     border-radius: 10px;
     width: 350px;

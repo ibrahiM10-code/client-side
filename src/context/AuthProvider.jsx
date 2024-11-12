@@ -11,8 +11,9 @@ export function AuthProvider({ children }) {
     const checkLS = () => {
       try {
         const token = localStorage.getItem("token");
+        const user_id = localStorage.getItem("userId");
         if (token) setUserToken(token);
-        if (userId) setUserId(userId);
+        if (user_id) setUserId(user_id);
       } catch (error) {
         console.log(error);
       }
@@ -43,6 +44,7 @@ export function AuthProvider({ children }) {
         setUserToken,
         setToken,
         cleanLS,
+        userId,
         setUserId,
         setUser,
         config,

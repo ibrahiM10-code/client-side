@@ -22,8 +22,9 @@ function LoginPage() {
       password: password.current.value,
     });
     if (response.status === 200) {
+      console.log(response.data);
       setToken(response.data.token);
-      setUser(response.data.user_id);
+      setUser(response.data.id_user);
       navigate("/home");
     } else {
       alert("Wrong credentials.");
