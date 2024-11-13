@@ -37,12 +37,15 @@ function RegisterPage() {
       email: email.current.value,
       password: psw.current.value,
     };
-    const response = await axios.post(`${apiAuthUrl}/register`, newUser);
-    if (response.status === 201) {
-      alert("User registered!");
-      navigate("/login");
-    } else {
-      alert("An error ocurred, try again.");
+    try {
+      const response = await axios.post(`${apiAuthUrl}/register`, newUser);
+      if (response.status === 201) {
+        alert("User registered!");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error has occured.");
     }
   };
 

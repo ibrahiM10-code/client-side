@@ -9,7 +9,7 @@ function EPContainer({ children, title, btnText }) {
 
   return (
     <>
-      <div className="pms-container">
+      <div className="pms-container exp-container">
         <div className="pms-header">
           <h3>{title}</h3>
           <button className="modal-form-btn" onClick={openTheModal}>

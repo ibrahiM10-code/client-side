@@ -17,17 +17,20 @@ function LoginPage() {
 
   const logUser = async (e) => {
     e.preventDefault();
-    const response = await axios.post(`${apiAuthUrl}/login`, {
-      email: email.current.value,
-      password: password.current.value,
-    });
-    if (response.status === 200) {
-      console.log(response.data);
-      setToken(response.data.token);
-      setUser(response.data.id_user);
-      navigate("/home");
-    } else {
-      alert("Wrong credentials.");
+    try {
+      const response = await axios.post(`${apiAuthUrl}/login`, {
+        email: email.current.value,
+        password: password.current.value,
+      });
+      if (response.status === 200) {
+        // console.log(response.data);
+        setToken(response.data.token);
+        setUser(response.data.id_user);
+        navigate("/home");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Wrong credentials!");
     }
   };
 

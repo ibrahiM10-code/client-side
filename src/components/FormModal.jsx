@@ -22,7 +22,6 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   const [paymentMethod, setPaymentMethod] = useState();
   const [userExpense, setUserExpense] = useState({ id_user: userId });
   const [paymentMethods, setPaymentMethods] = useState([]);
-  // console.log(userId);
 
   useEffect(() => {
     const bringPaymentMethods = async () => {
@@ -59,34 +58,41 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
 
   const submitPaymentMethod = async (event) => {
     event.preventDefault();
-    const response = await axios.post(
-      `${apiProcessUrl}/payment-method`,
-      paymentMethod,
-      config
-    );
-    if (response.status === 201) {
-      console.log("Payment method added!");
-      setOpenFormModal(false);
-    } else {
-      console.log("Failed to add payment method");
+    try {
+      const response = await axios.post(
+        `${apiProcessUrl}/payment-method`,
+        paymentMethod,
+        config
+      );
+      console.log(response);
+      if (response.status === 201) {
+        alert("Payment method added!");
+        setOpenFormModal(false);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to add payment method.");
     }
   };
 
   const submitExpense = async (event) => {
     event.preventDefault();
-    console.log(userExpense);
+    // console.log(userExpense);
 
-    const response = await axios.post(
-      `${apiProcessUrl}/user-expense`,
-      userExpense,
-      config
-    );
-    console.log(response);
-    if (response.status === 201) {
-      alert("Expense added succesfully!");
-      setOpenFormModal(false);
-    } else {
-      alert("Failed to add an expense.");
+    try {
+      const response = await axios.post(
+        `${apiProcessUrl}/user-expense`,
+        userExpense,
+        config
+      );
+      console.log(response);
+      if (response.status === 201) {
+        alert("Expense added succesfully!");
+        setOpenFormModal(false);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to add the expense.");
     }
   };
 
@@ -117,9 +123,10 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                 id=""
                 className="form-control"
                 onChange={handleExpense}
+                defaultValue={""}
               >
-                <option selected disabled>
-                  Choose a payment method
+                <option value={""} disabled>
+                  Choose a category
                 </option>
                 <option value={1}>Entertainment</option>
                 <option value={2}>Clothing</option>
@@ -130,12 +137,13 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                 id=""
                 className="form-control"
                 onChange={handleExpense}
+                defaultValue={" "}
               >
                 {paymentMethods.length === 0 ? (
                   <option disabled>You must add payment methods.</option>
                 ) : (
                   <>
-                    <option disabled selected>
+                    <option value={" "} disabled>
                       Choose a payment method
                     </option>
                     {paymentMethods.map((pms, index) => (

@@ -38,7 +38,7 @@ function ExpensesPage() {
             <DetailsCard
               key={index}
               expenseName={exp.expense_desc}
-              amountSpent={1500000}
+              amountSpent={exp.expense_amount}
             />
           ))
         )}
