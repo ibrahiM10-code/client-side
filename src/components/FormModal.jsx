@@ -20,7 +20,7 @@ const style = {
 function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   const { config, userId } = useContext(AuthContext);
   const [paymentMethod, setPaymentMethod] = useState();
-  const [userExpense, setUserExpense] = useState({ id_user: userId });
+  const [userExpense, setUserExpense] = useState({ id_user: null });
   const [paymentMethods, setPaymentMethods] = useState([]);
 
   useEffect(() => {
@@ -38,6 +38,12 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
     bringPaymentMethods();
   }, [paymentMethods, config]);
 
+  useEffect(() => {
+    if (userId) {
+      setUserExpense({ id_user: parseInt(userId) });
+    }
+  }, [userId]);
+
   const handleClose = () => setOpenFormModal(false);
 
   const handlePaymentMethod = (event) => {
@@ -46,8 +52,8 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   };
 
   const handleExpense = (event) => {
-    const { name, value } = event.target;
     console.log(userId);
+    const { name, value } = event.target;
     setUserExpense((prevValue) => {
       return {
         ...prevValue,
@@ -77,7 +83,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
 
   const submitExpense = async (event) => {
     event.preventDefault();
-    // console.log(userExpense);
+    console.log(userExpense);
 
     try {
       const response = await axios.post(
@@ -133,7 +139,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
               </select>
               <label htmlFor="">Payment method used</label>
               <select
-                name="id_user_payment_method"
+                name="id_payment_method"
                 id=""
                 className="form-control"
                 onChange={handleExpense}
@@ -147,7 +153,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                       Choose a payment method
                     </option>
                     {paymentMethods.map((pms, index) => (
-                      <option key={index} value={pms.id_payment_method}>
+                      <option key={index} value={pms.id_user_payment_method}>
                         {pms.method}
                       </option>
                     ))}
