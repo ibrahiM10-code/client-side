@@ -5,10 +5,10 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
 function ChangePasswordPage() {
-  const [newPassword, setNewPassword] = useState(""); // Para la nueva contraseña
-  const [confirmPassword, setConfirmPassword] = useState(""); // Para confirmar la contraseña
-  const [isActive, setIsActive] = useState(false); // Para activar la alerta de éxito
-  const [error, setError] = useState(false); // Para mostrar error si las contraseñas no coinciden
+  const [newPassword, setNewPassword] = useState(""); // For the new password
+  const [confirmPassword, setConfirmPassword] = useState(""); // For confirming the password
+  const [isActive, setIsActive] = useState(false); // To activate the success alert
+  const [error, setError] = useState(false); // To show error if passwords do not match
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ function ChangePasswordPage() {
     if (newPassword === confirmPassword && newPassword !== "") {
       setIsActive(true);
       setError(false);
-      console.log("Contraseña cambiada correctamente");
+      console.log("Password changed successfully");
     } else {
       setIsActive(false);
       setError(true);
@@ -27,31 +27,31 @@ function ChangePasswordPage() {
     <>
       <NavBar />
       <div className="form-container">
-        <h1>Cambiar Contraseña</h1>
+        <h1>Change Password</h1>
         <form id="change-password-form" onSubmit={handleSubmit}>
-          <label htmlFor="new-password">Nueva Contraseña</label>
+          <label htmlFor="new-password">New Password</label>
           <input
             type="password"
             id="new-password-field"
             name="new-password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            placeholder="Ingresa tu nueva contraseña"
+            placeholder="Enter your new password"
             required
           />
 
-          <label htmlFor="confirm-password">Confirmar Contraseña</label>
+          <label htmlFor="confirm-password">Confirm Password</label>
           <input
             type="password"
             id="confirm-password-field"
             name="confirm-password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Repite tu nueva contraseña"
+            placeholder="Repeat your new password"
             required
           />
 
-          <button type="submit">Guardar Nueva Contraseña</button>
+          <button type="submit">Save New Password</button>
         </form>
 
         {isActive && (
@@ -71,7 +71,7 @@ function ChangePasswordPage() {
               onClose={() => setIsActive(false)}
               sx={{ textAlign: "center", padding: "12px" }}
             >
-              Tu contraseña se ha cambiado exitosamente.
+              Your password has been changed successfully.
             </Alert>
           </Stack>
         )}
@@ -93,7 +93,7 @@ function ChangePasswordPage() {
               onClose={() => setError(false)}
               sx={{ textAlign: "center", padding: "12px" }}
             >
-              Las contraseñas no coinciden. Por favor, intenta nuevamente.
+              The passwords do not match. Please try again.
             </Alert>
           </Stack>
         )}

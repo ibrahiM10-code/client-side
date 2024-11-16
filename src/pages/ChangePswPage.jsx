@@ -11,7 +11,7 @@ function ChangePswPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      console.log("Se envió un código al correo: ", email);
+      console.log("A code has been sent to the email: ", email);
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -22,33 +22,33 @@ function ChangePswPage() {
     <>
       <NavBar />
       <div className="form-container">
-        <h1>Recuperar Contraseña</h1>
+        <h1>Recover Password</h1>
         <form id="reset-form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Correo electrónico</label>
+          <label htmlFor="email">Email Address</label>
           <input
             type="email"
             id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Ingresa tu correo registrado"
+            placeholder="Enter your registered email"
             required
           />
-          <button type="submit">Recibir Código</button>
+          <button type="submit">Receive Code</button>
         </form>
 
         <p>
-          ¿Recuerdas tu contraseña? <Link to="/login">Inicia sesión</Link>
+          Remember your password? <Link to="/login">Log in</Link>
         </p>
 
-        {/* Alerta de éxito */}
+        {/* Success Alert */}
         {isActive && (
           <Alert
             severity="success"
             onClose={() => setIsActive(false)}
             className="alert-register"
           >
-            Un código de verificación ha sido enviado a tu correo.
+            A verification code has been sent to your email.
           </Alert>
         )}
       </div>
