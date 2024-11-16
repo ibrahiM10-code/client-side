@@ -38,12 +38,12 @@ function LoginPage() {
     <>
       <NavBar />
       <div className="form-container">
-        <h1>Iniciar Sesión</h1>
+        <h1>Login</h1>
         <form id="login-form" onSubmit={logUser}>
-          <label htmlFor="email">Correo electrónico</label>
+          <label htmlFor="email">Email Address</label>
           <input type="email" id="email" name="email" ref={email} required />
 
-          <label htmlFor="password">Contraseña</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -52,14 +52,14 @@ function LoginPage() {
             required
           />
 
-          <button type="submit">Iniciar Sesión</button>
+          <button type="submit">Login</button>
         </form>
         <p>
-          ¿No tienes una cuenta? <Link to="/register">Registrarse</Link>
+          Don't have an account? <Link to="/register">Sign up</Link>
         </p>
         <p>
-          ¿Olvidaste tu Contraseña?{" "}
-          <Link to="/change-password">Recuperar Contraseña</Link>
+          Forgot your password?{" "}
+          <Link to="/change-password">Recover Password</Link>
         </p>
       </div>
       {isActive && (
@@ -71,7 +71,7 @@ function LoginPage() {
               setIsActive(false);
             }}
           >
-            The password must be of 8 characters long.
+            The password must be 8 characters long.
           </Alert>
         </Stack>
       )}
