@@ -6,62 +6,60 @@ function LandingPage() {
       <>
         <NavBar />
         <div className="header-landing">
-          <h1>¡Bienvenido a BC Finances!</h1>
-          <p>Tu ayudante hacia una vida financiera saludable</p>
+          <h1>Welcome to BC Finances!</h1>
+          <p>Your assistant towards a healthy financial life</p>
         </div>
 
-        <main class="container mt-5">
+        <main className="container mt-5">
           <section id="mission">
-            <h2 class="text-center">Nuestra Misión</h2>
+            <h2 className="text-center">Our Mission</h2>
             <p>
-              Empoderarte con el conocimiento y las herramientas necesarias para
-              tomar decisiones financieras informadas. Nuestro objetivo es
-              ayudarte a construir un futuro más seguro y próspero.
+              Empowering you with the knowledge and tools necessary to make informed financial decisions. Our goal is to help you build a more secure and prosperous future.
             </p>
           </section>
 
           <section id="services">
-            <h2 class="text-center mb-4">¿Qué ofrecemos?</h2>
-            <div class="row text-center">
-              <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                  <div class="card-body">
-                    <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
-                    <h5 class="card-title">Generación de Gráficos</h5>
-                    <p class="card-text">
-                      Visualiza tus datos financieros de manera efectiva.
+            <h2 className="text-center mb-4">What do we offer?</h2>
+            <div className="row text-center">
+              <div className="col-md-3 mb-4">
+                <div className="card shadow-sm">
+                  <div className="card-body">
+                    <i className="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+                    <h5 className="card-title">Graph Generation</h5>
+                    <p className="card-text">
+                      Visualize your financial data effectively.
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                  <div class="card-body">
-                    <i class="fas fa-plus fa-3x mb-3 text-primary"></i>
-                    <h5 class="card-title">Agregar Gastos</h5>
-                    <p class="card-text">
-                      Controla tus gastos y mejora tu presupuesto.
+              <div className="col-md-3 mb-4">
+                <div className="card shadow-sm">
+                  <div className="card-body">
+                    <i className="fas fa-plus fa-3x mb-3 text-primary"></i>
+                    <h5 className="card-title">Add Expenses</h5>
+                    <p className="card-text">
+                      Control your expenses and improve your budget.
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                  <div class="card-body">
-                    <i class="fas fa-credit-card fa-3x mb-3 text-primary"></i>
-                    <h5 class="card-title">Métodos de Pago</h5>
-                    <p class="card-text">
-                      Configura tus métodos de pago preferidos.
+              <div className="col-md-3 mb-4">
+                <div className="card shadow-sm">
+                  <div className="card-body">
+                    <i className="fas fa-credit-card fa-3x mb-3 text-primary"></i>
+                    <h5 className="card-title">Payment Methods</h5>
+                    <p className="card-text">
+                      Set up your preferred payment methods.
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 mb-4">
-                <div class="card shadow-sm">
-                  <div class="card-body">
-                    <i class="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
-                    <h5 class="card-title">Visualización de Saldos</h5>
-                    <p class="card-text">Revisa tus saldos por semana o mes.</p>
+              <div className="col-md-3 mb-4">
+                <div className="card shadow-sm">
+                  <div className="card-body">
+                    <i className="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
+                    <h5 className="card-title">Balance View</h5>
+                    <p className="card-text">Check your balances by week or month.</p>
                   </div>
                 </div>
               </div>
@@ -71,10 +69,9 @@ function LandingPage() {
 
         <footer className="footer-landing">
           <p>
-            ¡Gracias por visitarnos! Juntos, haremos que tus sueños financieros
-            se conviertan en una realidad.
+            Thank you for visiting us! Together, we will make your financial dreams come true.
           </p>
-          <p class="gold">Colaboración Chile - Brasil</p>
+          <p className="gold">Collaboration Chile - Brazil</p>
         </footer>
       </>
     );

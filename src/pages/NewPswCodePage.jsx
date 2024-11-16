@@ -6,21 +6,21 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
 function VerifyCodePage() {
-  const [code, setCode] = useState(""); // Estado para almacenar el código ingresado
-  const [isActive, setIsActive] = useState(false); // Para activar la alerta de éxito
-  const [error, setError] = useState(false); // Para mostrar error si el código es incorrecto
-  const [isSubmitted, setIsSubmitted] = useState(false); // Para saber si el código fue enviado
+  const [code, setCode] = useState(""); // State to store the entered code
+  const [isActive, setIsActive] = useState(false); // To activate the success alert
+  const [error, setError] = useState(false); // To show error if the code is incorrect
+  const [isSubmitted, setIsSubmitted] = useState(false); // To know if the code was submitted
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (code === "123456") {  // Suponemos que el código correcto es "123456"
+    if (code === "123456") {  // Assume the correct code is "123456"
       setIsActive(true);
       setError(false);
-      setIsSubmitted(true); // Código correcto
+      setIsSubmitted(true); // Correct code
     } else {
       setIsActive(false);
-      setError(true); // Código incorrecto
+      setError(true); // Incorrect code
       setIsSubmitted(true);
     }
   };
@@ -29,29 +29,29 @@ function VerifyCodePage() {
     <>
       <NavBar loggedIn={false} />
       <div className="form-container">
-        <h1>Verificar Código</h1>
+        <h1>Verify Code</h1>
         <form id="verify-code-form" onSubmit={handleSubmit}>
-          <label htmlFor="code">Código de verificación</label>
+          <label htmlFor="code">Verification Code</label>
           <input
             type="text"
             id="code"
             name="code"
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            placeholder="Ingresa el código enviado"
+            placeholder="Enter the code sent"
             required
           />
-          <button type="submit">Verificar Código</button>
+          <button type="submit">Verify Code</button>
         </form>
 
         <p>
-          ¿No has recibido el código? <Link to="/reset-password">Solicitar otro</Link>
+          Haven't received the code? <Link to="/reset-password">Request another one</Link>
         </p>
         <p>
-          Cambiar contraseña <Link to="/request-password-change">Continuar</Link>
+          Change password <Link to="/request-password-change">Continue</Link>
         </p>
 
-        {/* Mostrar la alerta si el código es correcto */}
+        {/* Show the success alert if the code is correct */}
         {isActive && isSubmitted && (
           <Stack className="alert-register" sx={{ width: "100%", maxWidth: "500px", marginLeft: "auto", marginRight: "auto", marginTop: "20px" }} spacing={2}>
             <Alert
@@ -59,12 +59,12 @@ function VerifyCodePage() {
               onClose={() => setIsActive(false)}
               sx={{ textAlign: "center", padding: "12px" }}
             >
-              El código es válido. Ahora puedes restablecer tu contraseña.
+              The code is valid. You can now reset your password.
             </Alert>
           </Stack>
         )}
 
-        {/* Mostrar la alerta si el código es incorrecto */}
+        {/* Show the error alert if the code is incorrect */}
         {error && isSubmitted && (
           <Stack className="alert-register" sx={{ width: "100%", maxWidth: "500px", marginLeft: "auto", marginRight: "auto", marginTop: "20px" }} spacing={2}>
             <Alert
@@ -72,7 +72,7 @@ function VerifyCodePage() {
               onClose={() => setError(false)}
               sx={{ textAlign: "center", padding: "12px" }}
             >
-              El código ingresado no es válido. Por favor, intenta nuevamente.
+              The code entered is not valid. Please try again.
             </Alert>
           </Stack>
         )}

@@ -1,4 +1,4 @@
-import React, {useState}  from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -13,31 +13,31 @@ function LoginPage() {
         console.log("Logged in!");
         e.preventDefault();
     }
-    
+
     return (
         <>
             <NavBar loggedIn={false}/>
             <div className="form-container">
-                <h1>Iniciar Sesión</h1>
+                <h1>Log In</h1>
                 <form id="login-form" onSubmit={logUser}>
-                    <label htmlFor="email">Correo electrónico</label>
+                    <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" required />
 
-                    <label htmlFor="password">Contraseña</label>
+                    <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" required />
 
-                    <button type="submit">Iniciar Sesión</button>
+                    <button type="submit">Log In</button>
                 </form>
-                <p>¿No tienes una cuenta? <Link to="/register">Registrarse</Link></p>
-                <p>¿Olvidaste tu Contraseña? <Link to="/change-password">Recuperar Contraseña</Link></p>
+                <p>Don't have an account? <Link to="/register">Register</Link></p>
+                <p>Forgot your password? <Link to="/change-password">Recover Password</Link></p>
             </div>
             {isActive && (
                 <Stack className="alert-register" sx={{ width: '20%' }} spacing={2}>
-                    <Alert severity="info" onClose={() => {}} onClick={ () => {setIsActive(false)}}>
-                        The password must be of 8 characters long.
+                    <Alert severity="info" onClose={() => {}} onClick={() => { setIsActive(false) }}>
+                        The password must be 8 characters long.
                     </Alert>
                 </Stack>
-             )}
+            )}
             <Footer />
         </>
     )
