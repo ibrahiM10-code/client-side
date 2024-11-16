@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "../components/NavBar"; 
+import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Alert from "@mui/material/Alert";
@@ -11,7 +11,7 @@ function ChangePswPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      console.log("A code was sent to the email: ", email);
+      console.log("Se envió un código al correo: ", email);
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -20,38 +20,35 @@ function ChangePswPage() {
 
   return (
     <>
-      <NavBar loggedIn={false} />
+      <NavBar />
       <div className="form-container">
-        <h1>Recover Password</h1>
+        <h1>Recuperar Contraseña</h1>
         <form id="reset-form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Correo electrónico</label>
           <input
             type="email"
             id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your registered email"
+            placeholder="Ingresa tu correo registrado"
             required
           />
-          <button type="submit">Receive Code</button>
+          <button type="submit">Recibir Código</button>
         </form>
 
         <p>
-          Remember your password? <Link to="/login">Log in</Link>
-        </p>
-        <p>
-          Already have your code? <Link to="/code-change-password">Continue</Link>
+          ¿Recuerdas tu contraseña? <Link to="/login">Inicia sesión</Link>
         </p>
 
-        {/* Success Alert */}
+        {/* Alerta de éxito */}
         {isActive && (
           <Alert
             severity="success"
             onClose={() => setIsActive(false)}
             className="alert-register"
           >
-            A verification code has been sent to your email.
+            Un código de verificación ha sido enviado a tu correo.
           </Alert>
         )}
       </div>

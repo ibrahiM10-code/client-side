@@ -27,7 +27,7 @@ function HomePage() {
 
   return (
     <>
-      <NavBar loggedIn={true} />
+      <NavBar />
       <div className="menu-container">
         <div className="first-row-options">
           <div className="latest-expense-container option">
