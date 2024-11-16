@@ -45,7 +45,7 @@ function RegisterPage() {
       }
     } catch (error) {
       console.error(error);
-      alert("An error has occured.");
+      alert("An error has occurred.");
     }
   };
 
@@ -53,9 +53,9 @@ function RegisterPage() {
     <>
       <NavBar />
       <div className="form-container">
-        <h1>Registro</h1>
+        <h1>Register</h1>
         <form id="registration-form" onSubmit={registerUser}>
-          <label htmlFor="firstName">Nombre</label>
+          <label htmlFor="firstName">First Name</label>
           <input
             type="text"
             id="firstName"
@@ -64,7 +64,7 @@ function RegisterPage() {
             required
           />
 
-          <label htmlFor="lastName">Apellido</label>
+          <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
             id="lastName"
@@ -73,10 +73,10 @@ function RegisterPage() {
             required
           />
 
-          <label htmlFor="email">Correo electrónico</label>
+          <label htmlFor="email">Email Address</label>
           <input type="email" id="email" name="email" ref={email} required />
 
-          <label htmlFor="password">Contraseña</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -86,10 +86,10 @@ function RegisterPage() {
             required
           />
 
-          <button type="submit">Registrar</button>
+          <button type="submit">Register</button>
         </form>
         <p>
-          ¿Ya tienes una cuenta? <Link to="/login">Inicia Sesión</Link>
+          Already have an account? <Link to="/login">Log In</Link>
         </p>
       </div>
       {isActive && (
@@ -101,7 +101,7 @@ function RegisterPage() {
               setIsActive(false);
             }}
           >
-            The password must be of 8 characters long.
+            The password must be at least 8 characters long.
           </Alert>
         </Stack>
       )}
