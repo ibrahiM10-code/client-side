@@ -38,7 +38,7 @@ function ExpensesPage() {
             <DetailsCard
               key={index}
               expenseName={exp.expense_desc}
-              amountSpent={exp.expense_amount}
+              amountSpent={parseInt(exp.expense_amount)}
             />
           ))
         )}

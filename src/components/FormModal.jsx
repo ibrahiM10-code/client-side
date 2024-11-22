@@ -22,6 +22,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   const [paymentMethod, setPaymentMethod] = useState();
   const [userExpense, setUserExpense] = useState({ id_user: null });
   const [paymentMethods, setPaymentMethods] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const bringPaymentMethods = async () => {
@@ -37,6 +38,18 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
     };
     bringPaymentMethods();
   }, [paymentMethods, config]);
+
+  useEffect(() => {
+    const bringCategories = async () => {
+      try {
+        const response = await axios.get(`${apiProcessUrl}/categories`, config);
+        setCategories(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    bringCategories();
+  }, [categories, config]);
 
   useEffect(() => {
     if (userId) {
@@ -134,12 +147,15 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
                 <option value={""} disabled>
                   Choose a category
                 </option>
-                <option value={1}>Entertainment</option>
-                <option value={2}>Clothing</option>
+                {categories.map((ctg, index) => (
+                  <option key={index} value={ctg.id_category}>
+                    {ctg.category_name}
+                  </option>
+                ))}
               </select>
               <label htmlFor="">Payment method used</label>
               <select
-                name="id_payment_method"
+                name="id_user_payment_method"
                 id=""
                 className="form-control"
                 onChange={handleExpense}
