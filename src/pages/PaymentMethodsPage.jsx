@@ -5,6 +5,7 @@ import EPContainer from "../components/EPContainer";
 import DetailsCard from "../components/DetailsCard";
 import DeleteButton from "../components/DeleteButton";
 import Sidebar from "../components/Sidebar";
+import DeleteModal from "../components//DeleteModal";
 import axios from "axios";
 import { apiProcessUrl } from "../helpers/apiUrl";
 
@@ -19,12 +20,14 @@ function PaymentMethodsPage() {
           config
         );
         setPaymentMethods(response.data);
+        // console.log(paymentMethods);
       } catch (error) {
         console.log(error);
       }
     };
     bringPaymentMethods();
   }, [paymentMethods, config]);
+  // console.log(paymentMethods);
 
   return (
     <>
@@ -43,11 +46,15 @@ function PaymentMethodsPage() {
               paymentMethodName={pm.method}
               totalSpent={32000}
             >
-              <DeleteButton />
+              <DeleteButton
+                key={index}
+                payment_method_id={pm.id_user_payment_method}
+              />
             </DetailsCard>
           ))
         )}
       </EPContainer>
+      <DeleteModal />
     </>
   );
 }
