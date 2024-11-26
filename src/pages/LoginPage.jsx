@@ -23,14 +23,16 @@ function LoginPage() {
         password: password.current.value,
       });
       if (response.status === 200) {
-        // console.log(response.data);
         setToken(response.data.token);
         setUser(response.data.id_user);
         navigate("/home");
+      } else if (response.status === 400) {
+        alert("Wrong credentials!");
+      } else if (response.status === 500) {
+        alert("There has been an internal error.");
       }
     } catch (error) {
       console.error(error);
-      alert("Wrong credentials!");
     }
   };
 
