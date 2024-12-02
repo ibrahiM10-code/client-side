@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../context/AuthProvider";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { apiAuthUrl } from "../helpers/apiUrl";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ChangePasswordPage() {
   const [newPassword, setNewPassword] = useState(""); // For the new password
   const [confirmPassword, setConfirmPassword] = useState(""); // For confirming the password
   const [isActive, setIsActive] = useState(false); // To activate the success alert
   const [error, setError] = useState(false); // To show an error if the passwords don't match
+  const navigate = useNavigate();
+  const { emailReset } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (newPassword === confirmPassword && newPassword !== "") {
-      setIsActive(true);
-      setError(false);
-      console.log("Password changed successfully");
+      try {
+        const response = await axios.post(`${apiAuthUrl}/reset-password`, {
+          newPassword,
+          email: emailReset,
+        });
+        console.log(response);
+        if (response.status === 200) {
+          setIsActive(true);
+          setError(false);
+          alert("Password changed successfully");
+          navigate("/login");
+        }
+      } catch (error) {
+        console.error(error);
+      }
     } else {
       setIsActive(false);
       setError(true);
