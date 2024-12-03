@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import AuthContext from "../context/AuthProvider";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { apiProcessUrl } from "../helpers/apiUrl";
 
 function HomePage() {
   const navigate = useNavigate();
+  const [latestExpense, setLatestExpense] = useState([]);
+  const { config } = useContext(AuthContext);
+
+  useEffect(() => {
+    const bringExpenses = async () => {
+      try {
+        const response = await axios.get(
+          `${apiProcessUrl}/user-expense/last-five`,
+          config
+        );
+        setLatestExpense(response.data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    bringExpenses();
+  }, [config, latestExpense]);
 
   const redirect = (whereTo) => {
     switch (whereTo) {
@@ -33,10 +53,10 @@ function HomePage() {
           <div className="latest-expense-container option">
             <div className="latest-expense-content">
               <p>Latest expense made:</p>
-              <h1>$30.000</h1>
+              <h1>${parseInt(latestExpense.expense_amount)}</h1>
               <div className="latest-expense">
                 <img src="./images/red-arrow.png" alt="red arrow" />
-                <p>Shoes</p>
+                <p>{latestExpense.expense_desc}</p>
               </div>
             </div>
           </div>
