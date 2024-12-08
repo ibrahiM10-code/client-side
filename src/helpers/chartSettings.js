@@ -6,7 +6,7 @@ export const chartSetting = {
       label: "totals",
     },
   ],
-  series: [{ dataKey: "totalSpent", label: "Spent on January", color: "#003366" }],
+  series: [{ dataKey: "total_amount", label: "Category Spent", color: "#003366" }],
   height: 600,
   width: 1000,
   sx: {

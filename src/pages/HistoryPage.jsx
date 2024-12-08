@@ -1,12 +1,61 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
+import AuthContext from "../context/AuthProvider";
 import { BarChart } from "@mui/x-charts/BarChart";
-import { expensesData } from "../helpers/dataset/expenses";
 import { chartSetting } from "../helpers/chartSettings";
+import { apiProcessUrl } from "../helpers/apiUrl";
+import axios from "axios";
 
 function HistoryPage() {
+  const [expensesHistory, setExpensesHistory] = useState([]);
+  const { config } = useContext(AuthContext);
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const [month, setMonth] = useState([]);
+
+  useEffect(() => {
+    const dataHistory = async () => {
+      const response = await axios.get(
+        apiProcessUrl +
+          `/user-expense/by-category?year=${currentYear}&month=${currentMonth}`,
+        config
+      );
+      let updatedData = response.data.map((item) => ({
+        ...item,
+        total_amount: parseInt(item.total_amount),
+      }));
+      setExpensesHistory(updatedData);
+    };
+    dataHistory();
+  }, [config, expensesHistory, currentYear, currentMonth]);
+
+  const handleMonth = (event) => {
+    const { value } = event.target;
+    setMonth(value);
+  };
+
+  const getExpensesHistory = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(
+        apiProcessUrl +
+          `/user-expense/by-category?year=${currentYear}&month=${month}`,
+        config
+      );
+      if (response.status === 200) {
+        let updatedData = response.data.map((item) => ({
+          ...item,
+          total_amount: parseInt(item.total_amount),
+        }));
+        setExpensesHistory(updatedData);
+      }
+    } catch (error) {
+      alert("Please, choose a month in which you've made expenses.");
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -17,11 +66,17 @@ function HistoryPage() {
             Choose a Month to check your expenses
           </p>
           <div className="month-parameter parameter">
-            <form action="">
+            <form onSubmit={getExpensesHistory}>
               <label htmlFor="" className="month-label mb-2">
                 Month
               </label>
-              <select name="month" id="month" className="form-control">
+              <select
+                name="month"
+                id="month"
+                className="form-control"
+                onChange={handleMonth}
+                defaultValue={currentMonth}
+              >
                 <option value="1">January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
@@ -35,14 +90,16 @@ function HistoryPage() {
                 <option value="11">November</option>
                 <option value="12">December</option>
               </select>
-              <button className="history-btn mt-1">See history</button>
+              <button className="history-btn mt-1" type="submit">
+                See history
+              </button>
             </form>
           </div>
         </div>
       </div>
       <div className="bar-chart-container">
         <BarChart
-          dataset={expensesData}
+          dataset={expensesHistory}
           xAxis={[{ scaleType: "band", dataKey: "category" }]}
           {...chartSetting}
           className="bar-chart"
