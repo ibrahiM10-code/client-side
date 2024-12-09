@@ -6,10 +6,12 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import AuthContext from "../context/AuthProvider";
 import { apiProcessUrl } from "../helpers/apiUrl";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function ExpensesPage() {
   const { config } = useContext(AuthContext);
   const [expense, setExpense] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const bringExpenses = async () => {
@@ -21,6 +23,8 @@ function ExpensesPage() {
         setExpense(response.data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     bringExpenses();
@@ -31,7 +35,9 @@ function ExpensesPage() {
       <NavBar />
       <Sidebar />
       <EPContainer title={"your expenses"} btnText={"add a new expense"}>
-        {expense.length === 0 ? (
+        {loading ? (
+          <CircularProgress />
+        ) : expense.length === 0 ? (
           <h1>No expenses added</h1>
         ) : (
           expense.map((exp, index) => (

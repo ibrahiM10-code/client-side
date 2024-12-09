@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { apiProcessUrl } from "../helpers/apiUrl";
+import CircularProgress from "@mui/material/CircularProgress";
 import NavBar from "../components/NavBar";
 import AuthContext from "../context/AuthProvider";
 import EPContainer from "../components/EPContainer";
@@ -7,11 +9,12 @@ import DeleteButton from "../components/DeleteButton";
 import Sidebar from "../components/Sidebar";
 import DeleteModal from "../components//DeleteModal";
 import axios from "axios";
-import { apiProcessUrl } from "../helpers/apiUrl";
 
 function PaymentMethodsPage() {
   const { config } = useContext(AuthContext);
   const [paymentMethods, setPaymentMethods] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const bringPaymentMethods = async () => {
       try {
@@ -20,14 +23,14 @@ function PaymentMethodsPage() {
           config
         );
         setPaymentMethods(response.data);
-        // console.log(paymentMethods);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     bringPaymentMethods();
   }, [paymentMethods, config]);
-  // console.log(paymentMethods);
 
   return (
     <>
@@ -37,7 +40,9 @@ function PaymentMethodsPage() {
         title={"my payment methods"}
         btnText={"add a new payment method"}
       >
-        {paymentMethods.length === 0 ? (
+        {loading ? (
+          <CircularProgress />
+        ) : paymentMethods.length === 0 ? (
           <h1>No payment methods added</h1>
         ) : (
           paymentMethods.map((pm, index) => (
