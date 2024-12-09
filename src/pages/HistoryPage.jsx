@@ -29,7 +29,7 @@ function HistoryPage() {
       setExpensesHistory(updatedData);
     };
     dataHistory();
-  }, [config, expensesHistory, currentYear, currentMonth]);
+  }, [config, currentYear, currentMonth]);
 
   const handleMonth = (event) => {
     const { value } = event.target;
