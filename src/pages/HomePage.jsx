@@ -5,11 +5,13 @@ import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { apiProcessUrl } from "../helpers/apiUrl";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function HomePage() {
-  const navigate = useNavigate();
-  const [latestExpense, setLatestExpense] = useState([]);
   const { config } = useContext(AuthContext);
+  const [latestExpense, setLatestExpense] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const bringExpenses = async () => {
@@ -21,6 +23,8 @@ function HomePage() {
         setLatestExpense(response.data[0]);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     bringExpenses();
@@ -53,11 +57,17 @@ function HomePage() {
           <div className="latest-expense-container option">
             <div className="latest-expense-content">
               <p>Latest expense made:</p>
-              <h1>${parseInt(latestExpense.expense_amount)}</h1>
-              <div className="latest-expense">
-                <img src="./images/red-arrow.png" alt="red arrow" />
-                <p>{latestExpense.expense_desc}</p>
-              </div>
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <>
+                  <h1>${parseInt(latestExpense.expense_amount)}</h1>
+                  <div className="latest-expense">
+                    <img src="./images/red-arrow.png" alt="red arrow" />
+                    <p>{latestExpense.expense_desc}</p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div

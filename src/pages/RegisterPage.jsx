@@ -45,7 +45,7 @@ function RegisterPage() {
       }
     } catch (error) {
       console.error(error);
-      alert("An error has occurred.");
+      alert("This email is already in use!");
     }
   };
 

@@ -26,13 +26,14 @@ function LoginPage() {
         setToken(response.data.token);
         setUser(response.data.id_user);
         navigate("/home");
-      } else if (response.status === 400) {
+      }
+    } catch (error) {
+      console.error(error);
+      if (response.status === 400) {
         alert("Wrong credentials!");
       } else if (response.status === 500) {
         alert("There has been an internal error.");
       }
-    } catch (error) {
-      console.error(error);
     }
   };
 
