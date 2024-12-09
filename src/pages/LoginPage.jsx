@@ -29,9 +29,9 @@ function LoginPage() {
       }
     } catch (error) {
       console.error(error);
-      if (response.status === 400) {
+      if (error.status === 400) {
         alert("Wrong credentials!");
-      } else if (response.status === 500) {
+      } else if (error.status === 500) {
         alert("There has been an internal error.");
       }
     }
