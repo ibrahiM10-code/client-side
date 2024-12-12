@@ -58,14 +58,26 @@ function HomePage() {
             <div className="latest-expense-content">
               <p>Latest expense made:</p>
               {loading ? (
-                <CircularProgress />
+                <CircularProgress className="loading-circle" />
               ) : (
                 <>
-                  <h1>${parseInt(latestExpense.expense_amount)}</h1>
-                  <div className="latest-expense">
-                    <img src="./images/red-arrow.png" alt="red arrow" />
-                    <p>{latestExpense.expense_desc}</p>
-                  </div>
+                  {isNaN(latestExpense) ? (
+                    <>
+                      <h1>${parseInt(latestExpense.expense_amount)}</h1>
+                      <div className="latest-expense">
+                        <img src="./images/red-arrow.png" alt="red arrow" />
+                        <p>{latestExpense.expense_desc}</p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <h1>$0</h1>
+                      <div className="latest-expense">
+                        <img src="./images/red-arrow.png" alt="red arrow" />
+                        <p>Add an expense!</p>
+                      </div>
+                    </>
+                  )}
                 </>
               )}
             </div>

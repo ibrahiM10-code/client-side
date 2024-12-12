@@ -17,19 +17,27 @@ function HistoryPage() {
 
   useEffect(() => {
     const dataHistory = async () => {
-      const response = await axios.get(
-        apiProcessUrl +
-          `/user-expense/by-category?year=${currentYear}&month=${currentMonth}`,
-        config
-      );
-      let updatedData = response.data.map((item) => ({
-        ...item,
-        total_amount: parseInt(item.total_amount),
-      }));
-      setExpensesHistory(updatedData);
+      try {
+        const response = await axios.get(
+          apiProcessUrl +
+            `/user-expense/by-category?year=${currentYear}&month=${currentMonth}`,
+          config
+        );
+        let updatedData = response.data.map((item) => ({
+          ...item,
+          total_amount: parseInt(item.total_amount),
+        }));
+        setExpensesHistory(updatedData);
+      } catch (error) {
+        if (error.status === 404) {
+          alert("Please, choose a month in which you've made expenses.");
+        } else if (error.status === 500) {
+          alert("Please, choose a month in which you've made expenses.");
+        }
+      }
     };
     dataHistory();
-  }, [config, currentYear, currentMonth]);
+  }, [config, currentMonth, currentYear]);
 
   const handleMonth = (event) => {
     const { value } = event.target;
@@ -52,7 +60,11 @@ function HistoryPage() {
         setExpensesHistory(updatedData);
       }
     } catch (error) {
-      alert("Please, choose a month in which you've made expenses.");
+      if (error.status === 404) {
+        alert("Please, choose a month in which you've made expenses.");
+      } else if (error.status === 500) {
+        alert("Please, choose a month in which you've made expenses.");
+      }
     }
   };
 

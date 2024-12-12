@@ -95,9 +95,7 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
   };
 
   const submitExpense = async (event) => {
-    event.preventDefault();
-    console.log(userExpense);
-
+    //event.preventDefault();
     try {
       const response = await axios.post(
         `${apiProcessUrl}/user-expense`,
@@ -108,16 +106,15 @@ function FormModal({ formTitle, openFormModal, setOpenFormModal }) {
       if (response.status === 201) {
         alert("Expense added succesfully!");
         setOpenFormModal(false);
-      } else if (response.status === 404) {
-        alert("The payment method picked doesn't exist.");
-      } else if (response.status === 400) {
-        alert("The category picked doesn't exist.");
-      } else if (response.status === 500) {
-        alert("There has been an internal error.");
       }
     } catch (error) {
-      console.error(error);
-      alert("Failed to add the expense.");
+      if (error.status === 404) {
+        alert("The payment method picked doesn't exist.");
+      } else if (error.status === 400) {
+        alert("The category picked doesn't exist.");
+      } else if (error.status === 500) {
+        alert("There has been an internal error.");
+      }
     }
   };
 
